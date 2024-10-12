@@ -1,0 +1,25 @@
+<?php
+
+function generateAnnounce(string $content, int $maxLength = 250): string {
+    // Удаляем пробелы в начале и конце текста
+    $content = trim($content);
+
+    // Обрезаем текст до максимальной длины с учетом многоточия
+    if (mb_strlen($content) > $maxLength - 3) {
+        $announcement = mb_substr($content, 0, $maxLength - 3) . '...';
+    } else {
+        $announcement = $content;
+    }
+
+    // Возвращаем анонс
+    return $announcement . ' [Читать далее]';
+}
+
+// Пример использования функции
+$articleContent = "Это пример текста статьи, которая может содержать множество интересных фактов и информации. "
+                . "Здесь можно описать основные моменты и идеи, о которых будет идти речь в статье. "
+                . "Читать дальше, чтобы узнать больше о теме статьи.";
+
+$announcement = generateAnnounce($articleContent);
+echo $announcement;
+?>
