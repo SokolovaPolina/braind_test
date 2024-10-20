@@ -15,8 +15,8 @@ function detectShape($data) {
 
     // Функция для проверки, является ли фигура квадратом
 function isSquare($image) {
-    $height = count($image);
-    $width = count($image[0]);
+    $height = count($image)-1;
+    $width = count($image[0])-1;
     
     // echo "\n";
     // echo $height;
@@ -30,8 +30,8 @@ function isSquare($image) {
     }
 
     // Проверим, заполнена ли вся квадратная область
-    for ($i = 1; $i < $height-1; $i++) {
-        for ($j = 1; $j < $width-1; $j++) {
+    for ($i = 1; $i < $height; $i++) {
+        for ($j = 1; $j < $width; $j++) {
             if ($image[$i][$j] == 0) {
                 return false; // Если есть пустое место, это не квадрат
             }
@@ -108,7 +108,9 @@ function isTriangle($image) {
 }
 
 // Пример использования
-$data = "10 10\n0 0 0 0 0 0 0 0 0 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 0 0 0 0 0 0 0 0 0";
-echo $data;
-echo detectShape($data);
+// $square = "10 10\n0 0 0 0 0 0 0 0 0 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 1 1 1 1 1 1 1 1 0\n0 0 0 0 0 0 0 0 0 0";
+// echo $square;
+$circle = "11 11\n0 0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 1 0 0 0 0 0\n0 0 0 0 1 1 1 0 0 0 0\n0 0 0 1 1 1 1 1 0 0 0\n0 0 1 1 1 1 1 1 1 0 0\n0 1 1 1 1 1 1 1 1 1 0\n0 0 1 1 1 1 1 1 1 0 0\n0 0 0 1 1 1 1 1 0 0 0\n0 0 0 0 1 1 1 0 0 0 0\n0 0 0 0 0 1 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0";
+echo $circle;
+echo detectShape($circle);
 ?>
